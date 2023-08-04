@@ -31,10 +31,10 @@ services:
       - default
     volumes:
       - ./initdb:/docker-entrypoint-initdb.d
- #     - db_data:/var/lib/postgresql
+      - db_data:/var/lib/postgresql
     restart: unless-stopped
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready" ]
+      test: [ "CMD-SHELL", "pg_isready  -U student -d kupipodariday" ]
       interval: 10s
       timeout: 5s
       retries: 5
